@@ -32,4 +32,10 @@ public class Parrot extends Animal{
     public void setLengthWings(Double lengthWings) {
         this.lengthWings = lengthWings;
     }
+
+    @Override
+    public String toString() {
+        return "Parrot " + getName() + " / can speak? "+ isCanSpeak() + " / lengh wings " + getLengthWings()
+                + " / likes " + getFavoriteFood() +  " / has the next friends: " + getFriendName();
+    }
 }

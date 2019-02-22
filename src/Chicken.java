@@ -32,4 +32,10 @@ public class Chicken extends Animal {
     public void setBroiler(boolean broiler) {
         isBroiler = broiler;
     }
+
+    @Override
+    public String toString() {
+        return "Chicken " + getName() + " / is boriler? "+ isBroiler() + " / lengh wings " + getLengthWings()+ " / likes "
+                + getFavoriteFood() + " / has the next friends: " + getFriendName();
+    }
 }

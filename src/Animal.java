@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Animal {
 
@@ -50,6 +51,10 @@ public class Animal {
 
     public void setFriend(Animal friend) {
         this.friend.add(friend);
+    }
+
+    public List<String> getFriendName(){
+        return friend.stream().map(friend->friend.getName()).collect(Collectors.toList());
     }
 
     //---methods---

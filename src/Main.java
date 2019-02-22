@@ -11,50 +11,50 @@ public class Main {
 
         List<Animal> animals = new ArrayList<>(); //A list with all animals
 
-        Dog dogKillian = new Dog();
+        Animal dogKillian = new Dog();
         dogKillian.setName("Killian");
-        dogKillian.setType("Hunting Dog");
+        ((Dog) dogKillian).setType("Hunting Dog");
         dogKillian.setFavoriteFood("Meat");
         animals.add(dogKillian);
 
-        Parrot parrotOne = new Parrot();
-        parrotOne.setCanSpeak(false);
+        Animal parrotOne = new Parrot();
+        ((Parrot) parrotOne).setCanSpeak(false);
         parrotOne.setName("Parrot One");
         parrotOne.setFavoriteFood("Grain");
-        parrotOne.setLengthWings(0.25);
+        ((Parrot) parrotOne).setLengthWings(0.25);
         animals.add(parrotOne);
 
-        Chicken chickenOne = new Chicken();
+        Animal chickenOne = new Chicken();
         chickenOne.setName("Chicken One");
-        chickenOne.setBroiler(true);
+        ((Chicken) chickenOne).setBroiler(true);
         chickenOne.setFavoriteFood("Corn");
-        chickenOne.setLengthWings(0.75);
+        ((Chicken) chickenOne).setLengthWings(0.75);
         animals.add(chickenOne);
 
-        Dog dogRocky = new Dog();
+        Animal dogRocky = new Dog();
         dogRocky.setName("Rocky");
-        dogRocky.setType("Working Dog");
+        ((Dog) dogRocky).setType("Working Dog");
         dogRocky.setFavoriteFood("Fresh meat");
         animals.add(dogRocky);
 
-        Parrot parrotTwo = new Parrot();
-        parrotTwo.setCanSpeak(true);
+        Animal parrotTwo = new Parrot();
+        ((Parrot) parrotTwo).setCanSpeak(true);
         parrotTwo.setName("Parrot Two");
         parrotTwo.setFavoriteFood("Corn");
-        parrotTwo.setLengthWings(0.5);
+        ((Parrot) parrotTwo).setLengthWings(0.5);
         animals.add(parrotTwo);
 
-        Dog dogPeter = new Dog();
+        Animal dogPeter = new Dog();
         dogPeter.setName("Peter");
-        dogPeter.setType("Sport Dog");
+        ((Dog) dogPeter).setType("Sport Dog");
         dogPeter.setFavoriteFood("Pedigree");
         animals.add(dogPeter);
 
-        Chicken chickenTwo = new Chicken();
+        Animal chickenTwo = new Chicken();
         chickenTwo.setName("Rocky");
-        chickenTwo.setBroiler(false);
+        ((Chicken) chickenTwo).setBroiler(false);
         chickenTwo.setFavoriteFood("Corn");
-        chickenTwo.setLengthWings(0.75);
+        ((Chicken) chickenTwo).setLengthWings(0.75);
         animals.add(chickenTwo);
 
 
@@ -72,6 +72,7 @@ public class Main {
            if(menu == 1){
                for (Animal animal:animals) {
                    System.out.println(animal.toString());
+
 
                }
            }
