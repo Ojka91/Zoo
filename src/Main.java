@@ -88,7 +88,7 @@ public class Main {
                break;
            }
 
-           System.out.println("Welcome another day to the zoo, what would you like to do?");
+           System.out.println("\nWelcome another day to the zoo, what would you like to do?");
            System.out.println("1: Check the animals\n2: Live one day\n3: Exit");
            menu = sc.nextInt();
 

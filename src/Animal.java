@@ -66,9 +66,9 @@ public class Animal {
                 Random rand = new Random();
                 Integer prob = rand.nextInt(animal.getFriend().size());
                 Animal friend = animal.getFriend().get(prob);
-             System.out.println(animal.getName() + " has lost friendship w/ "+animal.getFriend().get(prob).getName());
+                System.out.println(animal.getName() + " has lost friendship w/ "+animal.getFriend().get(prob).getName());
                 friend.getFriend().remove(animal);
-                animal.getFriend().remove(prob);
+                animal.getFriend().remove(friend);
         }
             else{
                System.out.println(animal.getName()+ " was going to lose a friend but... can't lose a friend because still don't have a friend :(");
@@ -86,16 +86,16 @@ public class Animal {
         Integer prob = rand.nextInt(newAnimals.size());
 
         if(!animal.getFriend().containsAll(newAnimals)){
-            if (newAnimals.get(prob).getName() == animal.getName()  || animal.getFriend().contains(newAnimals.get(prob))){
-                while(newAnimals.get(prob).getName() == animal.getName() || animal.getFriend().contains(newAnimals.get(prob))){
+           // if (animal.getFriend().contains(newAnimals.get(prob))){
+                while(animal.getFriend().contains(newAnimals.get(prob))){
                     prob = rand.nextInt(newAnimals.size());
                 }
-            }
-            else{
+          //  }
+       //     else{
                 animal.setFriend(newAnimals.get(prob));
                 newAnimals.get(prob).setFriend(animal);
                 System.out.println("Wow! "+animal.getName()+" now is friend w "+newAnimals.get(prob).getName());
-            }
+          //  }
 
         }
         else{
