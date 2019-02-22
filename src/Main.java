@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //---object creation----
 
-        List<Animal> animals = new ArrayList<>(); //A list with all animals
+        List<Animal> animals = new ArrayList<>(); //A list we will fill with all animals
 
+        //creation objects, all extends and polymorph from Animal class
         Animal dogKillian = new Dog();
         dogKillian.setName("Killian");
         ((Dog) dogKillian).setType("Hunting Dog");
@@ -64,59 +64,51 @@ public class Main {
         System.out.println("1: Check the animals\n2: Live one day\n3: Exit");
         Scanner sc = new Scanner(System.in);
         int menu = sc.nextInt();
-        Integer probOverDay = 0;
+        Integer probOverDay = 0;   //this variable will change overtime, changing % to make and lose friends
 
 
 
-       while(menu <= 3){
+       while(menu <= 3){ //if enter whatever different kicks you out of the program
            if(menu == 1){
+               //loop through array of animals and print toString method
                for (Animal animal:animals) {
-                   System.out.println(animal.toString());
-
-
+                   System.out.println(animal.toString()); //
                }
            }
            if(menu==2){
-               if(probOverDay<30){
+               if(probOverDay<30){ //change variable every day
                    probOverDay+=5;
-
                }
+               //call method dayOver
                dayOver(animals,probOverDay);
            }
-           if(menu == 3){
+           if(menu == 3){ //exit
                System.out.println("bye");
                break;
            }
-
+            //printing shown each round while playing
            System.out.println("\nWelcome another day to the zoo, what would you like to do?");
            System.out.println("1: Check the animals\n2: Live one day\n3: Exit");
            menu = sc.nextInt();
-
        }
-
-
-
     }
 
 
+    //receive list of animals and Integer that change overtime
     public static void dayOver(List<Animal> animals, Integer prob){
-        System.out.println("Probability in crescendo = " + prob);
-
-
         Random rand = new Random();
+
+        //each animal, has a probability to make or lose a friend
         for (Animal animal:animals) {
             Integer probability = rand.nextInt(100);
 
-            if(probability<(59-prob)){ //60% of probability to lose a friend et the beginning
-               // System.out.println(animal.getName() + " " + animal.getFriend());
+            if(probability<(59-prob)){ //60% of probability to lose a friend at the beginning
                 animal.loosesFriend(animal);
             }
             if(probability >(59-prob) && probability < 79){ //20% prob to make a new friend at the beginning
                 animal.gainFriend(animals, animal);
             }
         }
-
-
     }
 
 }

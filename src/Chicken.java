@@ -35,7 +35,7 @@ public class Chicken extends Animal {
 
     @Override
     public String toString() {
-        return "Chicken " + getName() + " / is boriler? "+ isBroiler() + " / lengh wings " + getLengthWings()+ " / likes "
+        return "Chicken " + getName() + " / is boriler? "+ isBroiler() + " / lengh wings " + getLengthWings()+ " / favorite food: "
                 + getFavoriteFood() + " / has the next friends: " + getFriendName();
     }
 }

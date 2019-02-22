@@ -36,6 +36,6 @@ public class Parrot extends Animal{
     @Override
     public String toString() {
         return "Parrot " + getName() + " / can speak? "+ isCanSpeak() + " / lengh wings " + getLengthWings()
-                + " / likes " + getFavoriteFood() +  " / has the next friends: " + getFriendName();
+                + " / favorite food: " + getFavoriteFood() +  " / has the next friends: " + getFriendName();
     }
 }

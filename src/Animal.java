@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class Animal {
 
+    //---common variables---
     private List<Animal> friend = new ArrayList<>();
     private String name;
     private String favoriteFood;
@@ -53,24 +54,27 @@ public class Animal {
         this.friend.add(friend);
     }
 
+
+    //return list of Strings
     public List<String> getFriendName(){
-        return friend.stream().map(friend->friend.getName()).collect(Collectors.toList());
+        return friend.stream()
+                .map(friend->friend.getName())
+                .collect(Collectors.toList());
     }
 
     //---methods---
-
-
     public void loosesFriend(Animal animal){
-       // System.out.println(animal.getFriend()==null);
+        //only can lose a friend if already have at least one
             if(animal.getFriend().size()!=0){
                 Random rand = new Random();
-                Integer prob = rand.nextInt(animal.getFriend().size());
+                Integer prob = rand.nextInt(animal.getFriend().size()); //generate random value as big as list of friend size
                 Animal friend = animal.getFriend().get(prob);
                 System.out.println(animal.getName() + " has lost friendship w/ "+animal.getFriend().get(prob).getName());
-                friend.getFriend().remove(animal);
-                animal.getFriend().remove(friend);
+                friend.getFriend().remove(animal);//both animals lose the friendship :(
+                animal.getFriend().remove(friend);//friendship comes from both ways at the same time :/
         }
             else{
+                //that's the good part of not having friends... you can't lose them :)
                System.out.println(animal.getName()+ " was going to lose a friend but... can't lose a friend because still don't have a friend :(");
             }
     }
@@ -78,24 +82,23 @@ public class Animal {
     public void gainFriend(List<Animal> animals, Animal animal){
         Random rand = new Random();
 
+        //generate new List with all animals BUT oneself
         List<Animal> newAnimals = new ArrayList<>();
         for (Animal eachanimal:animals){
             newAnimals.add(eachanimal);
         }
-        newAnimals.remove(animal);
-        Integer prob = rand.nextInt(newAnimals.size());
+        newAnimals.remove(animal); //removing here myself
 
-        if(!animal.getFriend().containsAll(newAnimals)){
-           // if (animal.getFriend().contains(newAnimals.get(prob))){
-                while(animal.getFriend().contains(newAnimals.get(prob))){
+        Integer prob = rand.nextInt(newAnimals.size()); //generate random value from new array size
+
+        if(!animal.getFriend().containsAll(newAnimals)){ //if you are friend with everybody you can't make new friend
+                while(animal.getFriend().contains(newAnimals.get(prob))){ //in case random value point to already friend animal
                     prob = rand.nextInt(newAnimals.size());
                 }
-          //  }
-       //     else{
-                animal.setFriend(newAnimals.get(prob));
+
+                animal.setFriend(newAnimals.get(prob)); //both animals become friends now
                 newAnimals.get(prob).setFriend(animal);
-                System.out.println("Wow! "+animal.getName()+" now is friend w "+newAnimals.get(prob).getName());
-          //  }
+                System.out.println("Wow! "+animal.getName()+" now is friend w/ "+newAnimals.get(prob).getName());
 
         }
         else{
